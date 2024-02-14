@@ -76,7 +76,7 @@ const Chatbox = React.memo(() => {
 
   return (
     <div className="container-fluid h-screen">
-      <div className="flex justify-center h-full">
+      <div className="flex justify-center h-[calc(100%-104px)]">
         <div className="md:w-8/12 xl:w-6/12 chat">
           <div style={{ height: "500px" }} className="card">
             <div
@@ -122,7 +122,7 @@ const Chatbox = React.memo(() => {
                   name="msg"
                   placeholder="Type your message..."
                   autoComplete="off"
-                  className="form-input type_msg p-1.5 px-3 w-full h-12"
+                  className="form-input type_msg p-1.5 px-3 w-full h-12 rounded-tl-[15px] rounded-bl-[15px]"
                   value={message}
                   onChange={handleChange}
                   required

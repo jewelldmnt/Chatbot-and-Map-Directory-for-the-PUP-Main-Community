@@ -36,19 +36,19 @@ from time import strftime
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from keras.models import load_model
-from Responses import Response
+from Chatbot_model.Responses import Response
 
 
 # lemmatizer instantiation
 lemmatizer = WordNetLemmatizer()
 
 # storing the json file as a dictionary
-intents = loads(open('backend\intents.json').read())
+intents = loads(open('backend\Chatbot_model\intents.json').read())
 
 # storing the data into its variable
-words = load(open('backend\words.pkl', 'rb'))
-classes = load(open('backend\classes.pkl', 'rb'))
-model = load_model('backend\pbot.h5')
+words = load(open('backend\Chatbot_model\words.pkl', 'rb'))
+classes = load(open('backend\Chatbot_model\classes.pkl', 'rb'))
+model = load_model('backend\Chatbot_model\pbot.h5')
 
 
 # lemmatizing the sentence
