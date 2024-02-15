@@ -31,24 +31,6 @@ class Response():
 
         return "Unknown"
     
-    def build_grade_equivalents_dictionary(self):
-        grade_equivalents = {
-            "1.0": "97-100 Excellent",
-            "1.25": "94-96 Excellent",
-            "1.5": "91-93 Very Good",
-            "1.75": "88-90 Very Good",
-            "2.0": "85-87 Good",
-            "2.25": "82-84 Good",
-            "2.5": "79-81 Satisfactory",
-            "2.75": "76-78 Satisfactory",
-            "3.0": "75 Passing",
-            "5.0": "65-74 Failure",
-            "Inc.": "Incomplete",
-            "W": "Withdrawn",
-            **{str(grade): "1.0 Excellent" for grade in range(97, 101)},
-            # Add other grade ranges here
-        }
-        return grade_equivalents
     
     def invalid_grade_response(self, grade):
         return f"I'm sorry, but {grade} is an invalid grade. The valid grades are:\n\
