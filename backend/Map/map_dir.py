@@ -1,3 +1,12 @@
+"""
+map_dir.py - Module for mapping locations to image filenames.
+
+This module provides a dictionary 'map_dict' that maps specific locations to a list of related locations.
+It also contains a function 'find_image_filename' to find the corresponding image filename based on two locations.
+
+Last edited: Feb 15, 2024
+"""
+
 import os
 
 map_dict = {
@@ -15,7 +24,16 @@ map_dict = {
 }
 
 def find_image_filename(pointA, pointB):
-    
+    """
+    Find the image filename based on two locations.
+
+    Parameters:
+    - pointA (str): The starting location.
+    - pointB (str): The ending location.
+
+    Returns:
+    - filename (str): The image filename if found, otherwise None.
+    """
     print(f"pointA: {pointA}")
     print(f"pointB: {pointB}")
     pointA = pointA.lower()

@@ -1,8 +1,25 @@
+/*
+  Map.tsx - React component for handling the map functionality.
+
+  This component defines an interface for users to input start and end locations,
+  submit the form to fetch a map image, and display the map image.
+
+  Last edited: Feb 15, 2024
+*/
+
 "use client";
 import React, { useState, ChangeEvent, useEffect } from "react";
 import { LOC_OPTIONS } from "@/constants";
 
 const Map = () => {
+  /**
+   * Map - React component for handling map functionality.
+   *
+   * This component includes input fields for start and end locations, suggestions based on user input,
+   * form submission to fetch a map image, and display of the fetched map image.
+   *
+   * @returns {JSX.Element} The JSX representation of the Map component.
+   */
   const [startLoc, setStartLoc] = useState<string>("");
   const [endLoc, setEndLoc] = useState<string>("");
   const [startSuggestions, setStartSuggestions] = useState<string[]>([]);
@@ -10,40 +27,67 @@ const Map = () => {
   const [filename, setFilename] = useState<string | null>(null);
 
   const handleStartLocChange = (e: ChangeEvent<HTMLInputElement>) => {
+    /**
+     * handleStartLocChange - Handles changes in the start location input.
+     *
+     * @param {ChangeEvent<HTMLInputElement>} e - The input change event.
+     */
     const input = e.target.value;
     setStartLoc(input);
     setStartSuggestions(filterSuggestions(input));
   };
 
   const handleEndLocChange = (e: ChangeEvent<HTMLInputElement>) => {
+    /**
+     * handleEndLocChange - Handles changes in the end location input.
+     *
+     * @param {ChangeEvent<HTMLInputElement>} e - The input change event.
+     */
     const input = e.target.value;
     setEndLoc(input);
     setEndSuggestions(filterSuggestions(input));
   };
 
   const filterSuggestions = (input: string) => {
-    return LOC_OPTIONS.filter(option =>
+    /**
+     * filterSuggestions - Filters location suggestions based on user input.
+     *
+     * @param {string} input - The user input for location suggestions.
+     * @returns {string[]} An array of filtered location suggestions.
+     */
+    return LOC_OPTIONS.filter((option) =>
       option.toLowerCase().includes(input.toLowerCase())
     );
   };
 
-const handleSuggestionClick = (suggestion: string, locationType: "start" | "end") => {
-  if (locationType === "start") {
-    setStartLoc(suggestion);
-    setStartSuggestions([]);
-  } else if (locationType === "end") {
-    setEndLoc(suggestion);
-    setEndSuggestions([]);
-  }
-};
-
+  const handleSuggestionClick = (
+    suggestion: string,
+    locationType: "start" | "end"
+  ) => {
+    /**
+     * handleSuggestionClick - Handles a click on a location suggestion.
+     *
+     * @param {string} suggestion - The selected location suggestion.
+     * @param {"start" | "end"} locationType - The type of location (start or end).
+     */
+    if (locationType === "start") {
+      setStartLoc(suggestion);
+      setStartSuggestions([]);
+    } else if (locationType === "end") {
+      setEndLoc(suggestion);
+      setEndSuggestions([]);
+    }
+  };
 
   const handleSubmit = async () => {
+    /**
+     * handleSubmit - Submits the form to fetch the map image based on start and end locations.
+     */
     try {
-      const response = await fetch('http://localhost:5000/api/map', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/api/map", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           startLoc: startLoc,
@@ -56,29 +100,34 @@ const handleSuggestionClick = (suggestion: string, locationType: "start" | "end"
         if (data.file_name) {
           setFilename(data.file_name);
         } else {
-          console.error('No filename received from the server');
+          console.error("No filename received from the server");
           setFilename(null); // Set filename to null if no filename is received
         }
       } else {
-        console.error('Error fetching image filename:', response.status);
+        console.error("Error fetching image filename:", response.status);
         setFilename(null); // Set filename to null if there's an error
       }
     } catch (error) {
-      console.error('Error fetching image filename', error);
+      console.error("Error fetching image filename", error);
       setFilename(null); // Set filename to null if there's an error
     }
   };
 
   useEffect(() => {
+    /**
+     * useEffect - React useEffect hook to handle filename changes and add an event listener.
+     */
     if (filename) {
-      // Placeholder for additional logic, e.g., perform some action or update the component state
-      console.log('Filename changed:', filename);
-      // Add your custom logic here
+      console.log("Filename changed:", filename);
     }
     // Event listener to close suggestion lists on outside click
     const closeSuggestionsOnOutsideClick = (e: MouseEvent) => {
-      const isClickInsideStartSuggestions = document.getElementById("startLocation")?.contains(e.target as Node);
-      const isClickInsideEndSuggestions = document.getElementById("endLocation")?.contains(e.target as Node);
+      const isClickInsideStartSuggestions = document
+        .getElementById("startLocation")
+        ?.contains(e.target as Node);
+      const isClickInsideEndSuggestions = document
+        .getElementById("endLocation")
+        ?.contains(e.target as Node);
 
       if (!isClickInsideStartSuggestions) {
         setStartSuggestions([]);
@@ -103,7 +152,10 @@ const handleSuggestionClick = (suggestion: string, locationType: "start" | "end"
       <div className="flex-none h-[calc(100%-104px)] w-80 card">
         {/* Input for the start location */}
         <div className="mb-4 p-3 px-5 relative">
-          <label htmlFor="startLocation" className="block text-lg font-medium text-gray-10">
+          <label
+            htmlFor="startLocation"
+            className="block text-lg font-medium text-gray-10"
+          >
             Start Location
           </label>
           <input
@@ -128,12 +180,15 @@ const handleSuggestionClick = (suggestion: string, locationType: "start" | "end"
                 </li>
               ))}
             </ul>
-          )}  
+          )}
         </div>
 
         {/* Input for the end location */}
         <div className="mb-4 p-3 px-5 relative">
-          <label htmlFor="endLocation" className="block text-lg font-medium text-gray-10">
+          <label
+            htmlFor="endLocation"
+            className="block text-lg font-medium text-gray-10"
+          >
             End Location
           </label>
           <input
@@ -163,20 +218,20 @@ const handleSuggestionClick = (suggestion: string, locationType: "start" | "end"
 
         {/* Button to submit the form */}
         <div className="mb-4 p-3 px-5">
-          <button onClick={handleSubmit} className="bg-[rgba(124,75,75,0.72)] text-gray-10 p-3 px-5 rounded-[15px] hover:bg-vanilla hover:text-maroon">
+          <button
+            onClick={handleSubmit}
+            className="bg-[rgba(124,75,75,0.72)] text-gray-10 p-3 px-5 rounded-[15px] hover:bg-vanilla hover:text-maroon"
+          >
             Find path
           </button>
         </div>
       </div>
 
       <div className="ml-4 flex-grow flex h-[calc(100%-104px)] justify-center items-center">
-        <div className="flex justify-center items-center h-3/4 w-3/4"> {/* this div should be center */}
-          {filename && (
-            <img
-              src={`assets/${filename}`}
-              alt="loc"
-            />
-          )}
+        <div className="flex justify-center items-center h-3/4 w-3/4">
+          {" "}
+          {/* this div should be center */}
+          {filename && <img src={`assets/${filename}`} alt="loc" />}
         </div>
       </div>
     </div>

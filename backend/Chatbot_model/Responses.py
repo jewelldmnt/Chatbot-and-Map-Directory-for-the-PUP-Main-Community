@@ -1,18 +1,41 @@
+"""
+Response.py - Module for generating various responses.
+
+This module defines a class 'Response' that provides methods for generating responses related to date, time,
+grade equivalencies, and dean information for specific colleges.
+
+Last edited: Feb 15, 2024
+"""
+
+
+
 from time import strftime
-import json
-
-
 
 class Response():
     def __init__(self) -> None:
         pass
     
+    
     def get_date_response(self):
+        """
+        Get the current date response.
+
+        Returns:
+        - str: The response indicating the current date.
+        """
         day = strftime("%A")
         date = strftime("%B %d %Y")
         return f"Today is {day}, {date}"
     
+    
     def get_time_response(self):
+        """
+        Get the current time response.
+
+        Returns:
+        - str: The response indicating the current time.
+        """
+    
         time_today = strftime("%I: %M %p")
         return f"It is {time_today}."
     
@@ -92,8 +115,16 @@ class Response():
         return grade_equivalents
     
     
-    
     def invalid_grade_response(self, grade):
+        """
+        Generate an invalid grade response.
+
+        Parameters:
+        - grade (str): The invalid grade.
+
+        Returns:
+        - str: The response indicating an invalid grade and providing a list of valid grades.
+        """
         return f"I'm sorry, but {grade} is an invalid grade. The valid grades are:\n\
             1.0: 97-100 Excellent\n\
             1.25: 94-96 Excellent\n\
@@ -130,6 +161,7 @@ class Response():
             return "Sorry I cannot answer your question"
         else:
             return f"The dean of {college} is {dean}."
+    
     
     def build_deans_dictionary(self):
         """

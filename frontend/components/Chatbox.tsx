@@ -1,11 +1,18 @@
-// Chatbox.tsx
+/*
+  Chatbox.tsx - React component for handling chat functionality.
+
+  This component defines a chatbox interface allowing users to interact with a chatbot.
+  It includes user input, message display, and communication with a server for chatbot responses.
+
+  Last edited: Feb 15, 2024
+*/
+
 "use client";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import Message from "./Message";  // Import the Message component
-
+import Message from "./Message"; // Import the Message component
 
 interface MessageType {
   type: string;
@@ -13,12 +20,31 @@ interface MessageType {
   time: string;
 }
 
-// Create a custom hook for stateful logic
 const useChatbox = () => {
+  /**
+   * useChatbox - Custom React hook for managing chatbox stateful logic.
+   *
+   * This hook manages the state and logic related to the chatbox, including user input,
+   * chatbot responses, and form submission.
+   *
+   * @returns {{
+   *   message: string,
+   *   messages: MessageType[],
+   *   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>,
+   *   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+   * }}
+   */
+
   const [message, setMessage] = useState<string>("");
   const [messages, setMessages] = useState<MessageType[]>([]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    /**
+     * handleSubmit - Handles form submission, sends user message to the server, and updates state with bot's response.
+     *
+     * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
+     * @returns {Promise<void>}
+     */
     event.preventDefault();
     const date = new Date();
     const hour = date.getHours();
@@ -60,29 +86,35 @@ const useChatbox = () => {
     } catch (error) {
       console.error("Error during fetch:", error);
     }
-
     setMessage("");
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    /**
+     * handleChange - Updates the message state when the user types in the input field.
+     *
+     * @param {React.ChangeEvent<HTMLInputElement>} event - The input change event.
+     * @returns {void}
+     */
     setMessage(event.target.value);
   };
-
   return { message, messages, handleSubmit, handleChange };
 };
 
 const Chatbox = React.memo(() => {
+  /**
+   * Chatbox - React memoized component for rendering the chatbox interface.
+   *
+   * @returns {JSX.Element}
+   */
   const { message, messages, handleSubmit, handleChange } = useChatbox();
 
   return (
     <div className="container-fluid h-screen">
       <div className="flex justify-center h-[calc(100%-104px)]">
         <div className="md:w-8/12 xl:w-6/12 chat">
-          <div style={{ height: "500px" }} className="card">
-            <div
-              style={{ padding: "12px 20px" }}
-              className="rounded-tl-2xl rounded-tr-2xl border-b-0 relative"
-            >
+          <div className="card h-[500px]">
+            <div className="rounded-tl-2xl rounded-tr-2xl border-b-0 relative p-[12px] px-[20px] ">
               <div className="flex bd-highlight">
                 <div className="img_cont">
                   <img
@@ -100,11 +132,15 @@ const Chatbox = React.memo(() => {
             </div>
             <div
               id="messageFormeight"
-              style={{ padding: "20px", height: "304px" }}
-              className="overflow-y-auto h-304 w-650.5"
+              className="overflow-y-auto h-[304px] w-650.5 p-[20px]"
             >
               {messages.map((msg, index) => (
-                <Message key={`${msg.type}-${index}`} type={msg.type} text={msg.text} time={msg.time} />
+                <Message
+                  key={`${msg.type}-${index}`}
+                  type={msg.type}
+                  text={msg.text}
+                  time={msg.time}
+                />
               ))}
             </div>
             <div className="overflow-hidden p-3 px-5 w-full h-auto">
@@ -129,10 +165,9 @@ const Chatbox = React.memo(() => {
                 />
                 <div className="h-15.5 input-group-append">
                   <button
-                    style={{ height: "60px" }}
                     type="submit"
                     id="send"
-                    className="input-group-text send_btn bg-info text-white p-1.5 px-3"
+                    className="input-group-text send_btn bg-info text-white p-1.5 px-3 h-[60px]"
                   >
                     <FontAwesomeIcon icon={faLocationArrow} />
                   </button>

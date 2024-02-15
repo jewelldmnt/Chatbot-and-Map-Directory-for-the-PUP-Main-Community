@@ -1,6 +1,13 @@
-// Message.tsx
-import React from "react";
+/*
+  Message.tsx - React component for displaying chat messages.
 
+  This component renders a chat message, including the message text, sender type (user or bot),
+  and the timestamp of the message.
+
+  Last edited: Feb 15, 2024
+*/
+
+import React from "react";
 
 interface MessageProps {
   type: string;
@@ -9,8 +16,18 @@ interface MessageProps {
 }
 
 const Message: React.FC<MessageProps> = ({ type, text, time }) => {
+  /**
+   * Message - React functional component for displaying chat messages.
+   *
+   * @param {MessageProps} param0 - The properties of the message.
+   * @returns {JSX.Element} The JSX representation of the Message component.
+   */
   return (
-    <div className={`flex mb-4 ${type === "user" ? "justify-end" : "justify-start"}`}>
+    <div
+      className={`flex mb-4 ${
+        type === "user" ? "justify-end" : "justify-start"
+      }`}
+    >
       {type === "bot" && (
         <div className="img_cont_msg">
           <img
@@ -21,7 +38,11 @@ const Message: React.FC<MessageProps> = ({ type, text, time }) => {
         </div>
       )}
 
-      <div className={`${type === "user" ? "msg_container_send" : "msg_container"}`}>
+      <div
+        className={`${
+          type === "user" ? "msg_container_send" : "msg_container"
+        }`}
+      >
         {text}
         <span className={type === "user" ? "msg_time_send" : "msg_time"}>
           {time}

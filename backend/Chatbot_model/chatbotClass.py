@@ -24,6 +24,8 @@ Usage:
 1. Instantiate the Chatbot class.
 2. Use the predict_class method to predict the intent of a given sentence.
 3. Use the get_response method to get a response based on the predicted intent.
+
+Last edited: Feb 15, 2024
 """
 
 

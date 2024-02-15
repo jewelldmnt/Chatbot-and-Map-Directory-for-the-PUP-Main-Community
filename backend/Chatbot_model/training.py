@@ -17,6 +17,7 @@ Usage:
 3. The trained model is saved as 'Seri_model.h5', and word and class information is stored in 'words.pkl' and 'classes.pkl'.
 
 Note: Adjustments to hyperparameters or file paths may be required based on your specific use case.
+Last edited: Feb 15, 2024
 """
 
 

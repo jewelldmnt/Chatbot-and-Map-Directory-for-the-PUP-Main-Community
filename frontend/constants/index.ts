@@ -1,9 +1,16 @@
-// NAVIGATION
+/*
+  Navigation Configuration:
+  Defines the navigation links for the application.
+*/
 export const NAV_LINKS = [
   { href: "/", key: "chat", label: "Chat" },
   { href: "/Map", key: "map", label: "Map" },
 ];
 
+/*
+  Location Options:
+  Defines an array of location options for the map functionality.
+*/
 export const LOC_OPTIONS: string[] = [
   "Linear Park",
   "Printing Press Building",
