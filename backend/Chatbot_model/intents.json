@@ -3,13 +3,54 @@
     {
       "tag": "date",
       "patterns": [
-        "What is the date today", 
-        "What is the day today", 
-        "What's the day today", 
-        "What's the date today", 
-        "Tell me the current date", 
-        "Give me today's date"],
+        "What is the date today",
+        "What is the day today",
+        "What's the day today",
+        "What's the date today",
+        "Tell me the current date",
+        "Give me today's date"
+      ],
       "responses": [""]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "What is your name",
+        "what should I call you",
+        "who are you",
+        "can you tell me your name",
+        "Do you have a name",
+        "What do people call you",
+        "Do you have a name"
+      ],
+      "responses": [
+        "You can call me P-Bot. I am a deep-learning bot. Lovely to meet you!",
+        "I am P-Bot. I am a deep-learning bot. Pleasure to meet you!",
+        "My name is P-Bot. I am a deep-learning bot. Glad to meet you!"
+      ]
+    },
+    {
+      "tag": "personality",
+      "patterns": ["What are you"],
+      "responses": ["I am a deep-learning bot"]
+    },
+    {
+      "tag": "greetings",
+      "patterns": [
+        "hi",
+        "hey",
+        "hello",
+        "good day",
+        "greetings",
+        "what's up",
+        "how is it going",
+        "is anyone there"
+      ],
+      "responses": [
+        "Hello! I am P-Bot, what can I do for you?",
+        "Hey! I am P-bot, happy to be of assistance.",
+        "Hi there, I am P-bot at your service. Tell me how I can help."
+      ]
     },
 
     {
@@ -29,7 +70,7 @@
     {
       "tag": "dean",
       "patterns": [
-        "who is the dean of the {dean}", 
+        "who is the dean of the {dean}",
         "what is the name of the {dean} dean",
         "Tell me the dean of {dean} department",
         "Who holds the position of dean in {dean} department"
@@ -72,6 +113,46 @@
         "grade equivalence of"
       ],
       "responses": [""]
+    },
+    {
+      "tag": "programs",
+      "patterns": [
+        "What programs are offered",
+        "What courses are available",
+        "Tell me about the academic programs at PUP",
+        "List of courses at Polytechnic University of the Philippines",
+        "Can you share information about the available programs"
+      ],
+      "responses": [
+        "To view the list of programs offered at the Polytechnic University of the Philippines, please visit the official website of the PUP campus: https://www.pup.edu.ph/academic/undergrad"
+      ]
+    },
+    {
+      "tag": "contacts",
+      "patterns": [
+        "Can you provide the contact information for {name}",
+        "Can you give me the list of contact information for campus officials",
+        "How can I contact PUP administration",
+        "Tell me about the contact details of the officials at PUP",
+        "Provide me with contact info for campus officials"
+      ],
+      "responses": [
+        "To access the contact information for the officials of the Polytechnic University of the Philippines, please visit the official website of the PUP campus: https://www.pup.edu.ph/about/contactinformation"
+      ]
+    },
+    {
+      "tag": "handbook",
+      "patterns": [
+        "Can you provide the student handbook?",
+        "Can you give me the student handbook?",
+        "Provide me with the student handbook",
+        "Where can I find the student handbook?",
+        "Is there a handbook for students?",
+        "Tell me about the PUP student handbook"
+      ],
+      "responses": [
+        "To view the student handbook (2014 revised edition), please visit: https://www.pup.edu.ph/studentservices/files/thepupstudenthandbook2014.pdf"
+      ]
     }
   ]
 }
