@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:5000/:path*", // Change port to Flask server's port
+        destination: "http://localhost:5000/:path*", 
       },
     ];
   },

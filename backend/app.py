@@ -7,7 +7,7 @@ from Map.map_dir import find_image_filename
 chatbot_instance = cb_module.Chatbot()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="https://chatbot-react-wheat.vercel.app", allow_headers=["Content-Type"])
 
 def handle_chat(data):
     user_message = data.get('message')
