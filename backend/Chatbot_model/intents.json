@@ -2,7 +2,13 @@
   "intents": [
     {
       "tag": "date",
-      "patterns": ["What is the date today", "What is the day today"],
+      "patterns": [
+        "What is the date today", 
+        "What is the day today", 
+        "What's the day today", 
+        "What's the date today", 
+        "Tell me the current date", 
+        "Give me today's date"],
       "responses": [""]
     },
 
@@ -10,46 +16,34 @@
       "tag": "time",
       "patterns": [
         "What time is it?",
-        "time rightS now",
+        "time right now",
         "do you know what time it is",
         "can you tell me the time",
-        "what is the time"
+        "what is the time",
+        "Tell me the current time",
+        "Give me the time now"
       ],
       "responses": [""]
     },
 
     {
-      "tag": "map_swimming_pool",
-      "patterns": ["where is swimming pool located"],
-      "responses": [
-        "From the main gate, walk straight ahead until you reach the obelisk, then turn right."
-      ]
-    },
-
-    {
-      "tag": "map_lagoon",
-      "patterns": ["where is lagoon located"],
-      "responses": [
-        "From the main gate, walk straight ahead until you reach the obelisk. Then continue straight and enter the arc."
-      ]
-    },
-
-    {
-      "tag": "dean_ccis",
+      "tag": "dean",
       "patterns": [
-        "who is the dean of the ccis",
-        "who is the dean of the college of computer and information sciences"
+        "who is the dean of the {dean}", 
+        "what is the name of the {dean} dean",
+        "Tell me the dean of {dean} department",
+        "Who holds the position of dean in {dean} department"
       ],
-      "responses": [
-        "(Sgd). Dr. Benilda Eleonor V. Comendador is the dean of the College of Computer and Information Sciences"
-      ]
+      "responses": [""]
     },
 
     {
-      "tag": "grade_equivalency",
+      "tag": "ge",
       "patterns": [
         "List all grade equivalences",
-        "What are the grade equivalences?"
+        "What are the grade equivalences?",
+        "Provide a list of grade equivalents",
+        "Can you list the grade equivalences?"
       ],
       "responses": [
         "1.0: 97-100 Excellent",
@@ -68,12 +62,14 @@
     },
 
     {
-      "tag": "specific_grade_equivalency",
+      "tag": "sge",
       "patterns": [
         "What is the percentage equivalent of grade",
         "What is the percentage equivalent of",
         "What is the grade equivalent of ",
-        "grade equivalent of"
+        "What is the grade equivalence of ",
+        "grade equivalent of",
+        "grade equivalence of"
       ],
       "responses": [""]
     }

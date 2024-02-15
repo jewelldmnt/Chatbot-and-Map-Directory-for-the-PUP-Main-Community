@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import re
 import Chatbot_model.chatbotClass as cb_module
 from Map.map_dir import find_image_filename
 
@@ -10,13 +11,23 @@ CORS(app)
 
 def handle_chat(data):
     user_message = data.get('message')
-    message = user_message
+    message = user_message.lower()
+    ignore_letters = ['?', '!', ',']
+    
+    # Remove punctuation marks except dots in a float
+    message = re.sub(r'[^0-9a-zA-Z. ]', '', message)
+
+    # Remove specified letters
+    for letter in ignore_letters:
+        message = message.replace(letter, '')
+    
+    message = ' '.join(message.split())
     intents = chatbot_instance.predict_class(message)
     probability = float(intents[0]['probability'])
     
     if user_message:
         if probability < 0.99:
-            chatbot_response = "Sorry, we cannot answer your question."
+            chatbot_response = "Sorry, I cannot answer your question."
         else:
             chatbot_response = chatbot_instance.get_response(intents, cb_module.intents, message)
         return jsonify({'response': chatbot_response})

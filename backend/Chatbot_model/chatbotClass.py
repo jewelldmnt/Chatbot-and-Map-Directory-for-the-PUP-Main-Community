@@ -140,9 +140,15 @@ class Chatbot():
                 self.result = response.get_time_response()
                 break
             
-            elif tag == 'specific_grade_equivalency':
+            elif tag == 'sge':
                 self.result = response.get_specific_grade_equivalency_response(user_query)
                 break
+            
+            elif tag == 'ge':
+                self.result = "1.0: 97-100 Excellent\n1.25: 94-96 Excellent\n1.5: 91-93 Very Good\n1.75: 88-90 Very Good\n2.0: 85-87 Good\n2.25: 82-84 Good\n2.5: 79-81 Satisfactory\n2.75: 76-78 Satisfactory\n3.0: 75 Passing\n5.0: 65-74 Failure\nInc.: Incomplete\nW: Withdrawn"
+                
+            elif tag == 'dean':
+                self.result = response.get_dean_response(user_query)
             
             elif i['tag'] == tag:
                 self.result = choice(i['responses'])

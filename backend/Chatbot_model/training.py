@@ -29,12 +29,14 @@ from nltk.stem import WordNetLemmatizer
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers.legacy import SGD
+import re
+
 
 # Instantiate the lemmatizer
 lemmatizer = WordNetLemmatizer()
 
 # storing the json file as a dictionary
-intents = loads(open('chatbot_model/intents.json').read())
+intents = loads(open('backend/Chatbot_model/intents.json').read())
 
 # Define lists to hold words, classes, and documents
 words = []
@@ -42,9 +44,13 @@ classes = []
 documents = []
 ignore_letters = ['?', '!', '.', ',']
 
+def ignore_inside_braces(text):
+    return re.sub(r'{.*?}', '', text)
+
 # Iterate over the intents and their patterns to build the word list and documents list
 for intent in intents['intents']:
     for pattern in intent['patterns']:
+        pattern = ignore_inside_braces(pattern)
         word_list = word_tokenize(pattern)
         words.extend(word_list)
         documents.append((word_list, intent['tag']))
@@ -58,8 +64,8 @@ words = sorted(list(set(lemmatizer.lemmatize(word.lower()) for word in words if 
 classes = sorted(list(set(classes)))
 
 # Save the words and classes as binary files
-dump(words, open('chatbot_model/words.pkl', 'wb'))
-dump(classes, open('chatbot_model/classes.pkl', 'wb'))
+dump(words, open('backend/Chatbot_model/words.pkl', 'wb'))
+dump(classes, open('backend/Chatbot_model/classes.pkl', 'wb'))
 
 # Convert the documents to training data
 training = []
@@ -96,7 +102,7 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 hist = model.fit(array(train_x), array(train_y), epochs=200, batch_size=5, verbose=1)
 
 # Save the model
-model.save('chatbot_model/pbot.h5', hist)
+model.save('backend/Chatbot_model/pbot.h5', hist)
 print("Done")
 for index, word in enumerate(words):
     print(f"Index {index}: {word}")
