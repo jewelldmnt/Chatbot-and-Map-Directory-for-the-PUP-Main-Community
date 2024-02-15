@@ -7,7 +7,7 @@ from Map.map_dir import find_image_filename
 chatbot_instance = cb_module.Chatbot()
 
 app = Flask(__name__)
-CORS(app, origins="https://chatbot-react-wheat.vercel.app", allow_headers=["Content-Type"])
+CORS(app)
 
 def handle_chat(data):
     user_message = data.get('message')
@@ -63,4 +63,4 @@ def map_endpoint():
         return jsonify({'error': 'Internal Server Error'}), 500
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8000)
+    app.run(debug=True, port=5000)
