@@ -1,5 +1,4 @@
 import { NAV_LINKS } from "@/constants";
-import { link } from "fs";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,24 +8,18 @@ const Navbar = () => {
       <Link href="/">
         <Image src="/pbot.png" alt="logo" width={64} height={19} />
       </Link>
-      <ul className="hidden h-full gap-12 lg:flex">
+      <ul className="flex h-full gap-12 items-center lg:items-stretch">
         {NAV_LINKS.map((link) => (
           <Link
             href={link.href}
             key={link.key}
-            className="regular-16 text-white flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold hover:text-vanilla"
+            className="regular-16 text-white cursor-pointer pb-1.5 transition-all hover:font-bold hover:text-vanilla"
+            style={{ whiteSpace: "nowrap" }}
           >
             {link.label}
           </Link>
         ))}
       </ul>
-      <Image
-        src="menu.svg"
-        alt="menu"
-        width={32}
-        height={32}
-        className="inline-block cursor-pointer lg:hidden filter invert"
-      />
     </nav>
   );
 };
