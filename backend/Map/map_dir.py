@@ -14,13 +14,13 @@ map_dict = {
     "oval": ["track and football oval", "grandstand", "gabriela silang building"],
     "student canteen": ["linear park", "university canteen sampaguita building"],
     "university avenue": ["gazebo", "apolinario mabini shrine", "souvenir shop"],
-    "tahanan ng alumni": ["swimming pool", "Physical Education Building"],
+    "tahanan ng alumni": ["swimming pool", "college of human kinetics building"],
     "main building": ["west wing", "south wing", "east wing"],
     "charlie del rosario": ["charlie del rosario hall"],
     "printing press": ["printing press building"],
     "chapel": ["interfaith chapel"],
     "library": ["ninoy aquino library and learning resources center"],
-    "obelisk": ["mabini monument obelisk"]   
+    "obelisk": ["mabini monument obelisk"]
 }
 
 def find_image_filename(pointA, pointB):

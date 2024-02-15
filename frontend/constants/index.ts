@@ -13,6 +13,9 @@ export const NAV_LINKS = [
 */
 export const LOC_OPTIONS: string[] = [
   "Linear Park",
+  "Lagoon",
+  "Nutrition and Food Science Building",
+  "Laboratory High School",
   "Printing Press Building",
   "Charlie del Rosario Hall",
   "Student Canteen",
@@ -20,12 +23,12 @@ export const LOC_OPTIONS: string[] = [
   "West Wing",
   "South Wing",
   "Main Building",
-  "East Wing", 
+  "East Wing",
   "Ferry Station",
   "Interfaith Chapel",
   "Amphitheater",
   "Ninoy Aquino Library and Learning Resources Center",
-  "Physical Education Building",
+  "College of Human Kinetics Building",
   "Tahanan ng Alumni",
   "Swimming Pool",
   "Mabini Monument Obelisk",
@@ -39,5 +42,5 @@ export const LOC_OPTIONS: string[] = [
   "Grandstand",
   "Gabriela Silang Building",
   "Guard House",
-  "Souvenir Shop"
+  "Souvenir Shop",
 ];
