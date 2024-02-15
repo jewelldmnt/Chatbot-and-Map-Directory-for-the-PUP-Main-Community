@@ -113,6 +113,22 @@ const Map = () => {
     }
   };
 
+  const [zoomLevel, setZoomLevel] = useState<number>(100);
+
+  const handleZoomIn = () => {
+    /**
+     * handleZoomIn - Handles zooming in on the map image.
+     */
+    setZoomLevel((prevZoom) => Math.min(prevZoom + 10, 200)); // Increase zoom level, limit to 200%
+  };
+
+  const handleZoomOut = () => {
+    /**
+     * handleZoomOut - Handles zooming out on the map image.
+     */
+    setZoomLevel((prevZoom) => Math.max(prevZoom - 10, 10)); // Decrease zoom level, limit to 10%
+  };
+
   useEffect(() => {
     /**
      * useEffect - React useEffect hook to handle filename changes and add an event listener.
@@ -231,7 +247,30 @@ const Map = () => {
         <div className="flex justify-center items-center h-3/4 w-3/4">
           {" "}
           {/* this div should be center */}
-          {filename && <img src={`assets/${filename}`} alt="loc" />}
+          {filename && (
+            <div className="relative" style={{ overflow: "hidden" }}>
+              <img
+                src={`assets/${filename}`}
+                alt="loc"
+                style={{ transform: `scale(${zoomLevel / 100})` }}
+              />
+              {/* Zoom buttons for map image */}
+              <div className="absolute top-0 right-0 p-2">
+                <button
+                  onClick={handleZoomIn}
+                  className="bg-vanilla text-maroon p-2 rounded-md hover:bg-maroon hover:text-vanilla"
+                >
+                  +
+                </button>
+                <button
+                  onClick={handleZoomOut}
+                  className="bg-vanilla text-maroon p-2 rounded-md hover:bg-maroon hover:text-vanilla"
+                >
+                  -
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
