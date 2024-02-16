@@ -153,6 +153,33 @@
       "responses": [
         "To view the student handbook (2014 revised edition), please visit: https://www.pup.edu.ph/studentservices/files/thepupstudenthandbook2014.pdf"
       ]
+    },
+    {
+      "tag": "ords",
+      "patterns": [
+        "How do I request a document from the registrar",
+        "What is the process for document request in the registrar",
+        "Tell me the procedure for document request at the registrar's office.",
+        "I need to obtain a document. What's the process with the registrar",
+        "Can you guide me through the document request process in the registrar's office"
+      ],
+      "responses": [
+        "To initiate a document request, go to the official Online Document Request System (ODRS) site at https://odrs.pup.edu.ph/. Upon reaching the site, select your registrar from the available options. Afterward, either log in to your existing account or create one if you do not have any. Finally, proceed to make a request for the desired document."
+      ]
+    },
+    {
+      "tag": "appointment",
+      "patterns": [
+        "How do I request an appointment",
+        "What is the process for scheduling an appointment",
+        "Can you guide me on how to request an appointment",
+        "I need to set up a meeting. How can I make an appointment",
+        "Tell me the steps to book an appointment through the official system.",
+        "Is there a specific way to schedule appointments online"
+      ],
+      "responses": [
+        "To request an appointment, go to the official Appointment System at https://apps.pup.edu.ph/appointment/."
+      ]
     }
   ]
 }
