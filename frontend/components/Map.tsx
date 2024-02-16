@@ -24,7 +24,7 @@ const Map = () => {
   const [endLoc, setEndLoc] = useState<string>("");
   const [startSuggestions, setStartSuggestions] = useState<string[]>([]);
   const [endSuggestions, setEndSuggestions] = useState<string[]>([]);
-  const [filename, setFilename] = useState<string | null>(null);
+  const [filename, setFilename] = useState<string | null>("map.png");
 
   const handleStartLocChange = (e: ChangeEvent<HTMLInputElement>) => {
     /**
@@ -98,18 +98,18 @@ const Map = () => {
       if (response.ok) {
         const data = await response.json();
         if (data.file_name) {
-          setFilename(data.file_name);
+          setFilename(`assets/${data.file_name}`); // Construct file path based on backend response
         } else {
           console.error("No filename received from the server");
-          setFilename(null); // Set filename to null if no filename is received
+          setFilename("map.png"); // Set default image filename if no filename is received
         }
       } else {
         console.error("Error fetching image filename:", response.status);
-        setFilename(null); // Set filename to null if there's an error
+        setFilename("map.png"); // Set default image filename if there's an error
       }
     } catch (error) {
       console.error("Error fetching image filename", error);
-      setFilename(null); // Set filename to null if there's an error
+      setFilename("map.png"); // Set default image filename if there's an error
     }
   };
 
@@ -246,31 +246,28 @@ const Map = () => {
       <div className="ml-4 flex-grow flex h-[calc(100%-104px)] justify-center items-center">
         <div className="flex justify-center items-center h-3/4 w-3/4">
           {" "}
-          {/* this div should be center */}
-          {filename && (
-            <div className="relative" style={{ overflow: "hidden" }}>
-              <img
-                src={`assets/${filename}`}
-                alt="loc"
-                style={{ transform: `scale(${zoomLevel / 100})` }}
-              />
-              {/* Zoom buttons for map image */}
-              <div className="absolute top-0 right-0 p-2">
-                <button
-                  onClick={handleZoomIn}
-                  className="bg-vanilla text-maroon p-2 rounded-md hover:bg-maroon hover:text-vanilla"
-                >
-                  +
-                </button>
-                <button
-                  onClick={handleZoomOut}
-                  className="bg-vanilla text-maroon p-2 rounded-md hover:bg-maroon hover:text-vanilla"
-                >
-                  -
-                </button>
-              </div>
+          <div className="relative" style={{ overflow: "hidden" }}>
+            <img
+              src={`${filename}`}
+              alt="loc"
+              style={{ transform: `scale(${zoomLevel / 100})` }}
+            />
+            {/* Zoom buttons for map image */}
+            <div className="absolute bottom-0 left-0 p-2">
+              <button
+                onClick={handleZoomIn}
+                className="bg-gray-50 h-[40px] w-[27px] text-white p-2 mr-2 rounded-md hover:bg-maroon hover:text-vanilla"
+              >
+                +
+              </button>
+              <button
+                onClick={handleZoomOut}
+                className="bg-gray-50 h-[40px] w-[27px] text-white p-2 rounded-md hover:bg-maroon hover:text-vanilla"
+              >
+                -
+              </button>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
