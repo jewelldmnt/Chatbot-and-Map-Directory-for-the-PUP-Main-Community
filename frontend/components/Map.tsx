@@ -165,7 +165,7 @@ const Map = () => {
 
   return (
     <div className="container-fluid h-screen flex flex-row justify-between">
-      <div className="flex-none h-[calc(100%-104px)] w-80 card">
+      <div className="flex-none pt-[12px] h-[calc(100%-104px)] w-80 rounded-t-3xl bg-black bg-opacity-40">
         {/* Input for the start location */}
         <div className="mb-4 p-3 px-5 relative">
           <label
