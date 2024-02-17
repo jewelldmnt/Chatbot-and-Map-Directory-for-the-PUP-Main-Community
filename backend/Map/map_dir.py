@@ -17,6 +17,7 @@ map_dict = {
     "tahanan ng alumni": ["swimming pool", "college of human kinetics building"],
     "charlie del rosario": ["charlie del rosario hall"],
     "printing press": ["printing press building"],
+    "main building": ["main building"],
     "chapel": ["interfaith chapel"],
     "library": ["ninoy aquino library and learning resources center"],
     "obelisk": ["mabini monument obelisk"]
@@ -66,8 +67,8 @@ def find_image_filename(pointA, pointB):
     return None
 
 # Example usage:
-pointA = "Mabini Monument Obelisk"
-pointB = "Main Gate"
+pointA = "Main Building"
+pointB = "track and football oval"
 result = find_image_filename(pointA, pointB)
 
 if result:
