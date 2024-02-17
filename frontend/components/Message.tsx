@@ -1,3 +1,13 @@
+/**
+ * Message.tsx - React component for displaying chat messages.
+ *
+ * This component renders a chat message, including the message text, sender type (user or bot),
+ * and the timestamp of the message.
+ *
+ * @file This file contains the Message component.
+ * @lastmodified Feb 15, 2024
+ */
+
 import React from "react";
 
 interface MessageProps {
@@ -7,12 +17,31 @@ interface MessageProps {
 }
 
 const Message: React.FC<MessageProps> = ({ type, text, time }) => {
+  /**
+   * Message - React functional component for displaying chat messages.
+   *
+   * @param {MessageProps} props - The properties of the message.
+   * @returns {JSX.Element} The JSX representation of the Message component.
+   */
+
   const isLink = (str: string) => {
+    /**
+     * Checks if a given string is a link.
+     *
+     * @param {string} str - The string to check for being a link.
+     * @returns {boolean} True if the string is a link, false otherwise.
+     */
     const regex = /(https?:\/\/[^\s]+)/g;
     return regex.test(str);
   };
 
   const renderTextWithLinks = (message: string) => {
+    /**
+     * Renders the message text with hyperlinks styled in blue and underlined.
+     *
+     * @param {string} message - The message text to render.
+     * @returns {JSX.Element[]} An array of JSX elements representing the message text.
+     */
     return message.split(" ").map((word, index) => (
       <React.Fragment key={index}>
         {isLink(word) ? (
