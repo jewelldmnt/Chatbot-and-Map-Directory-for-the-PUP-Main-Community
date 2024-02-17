@@ -15,7 +15,6 @@ map_dict = {
     "student canteen": ["linear park", "university canteen sampaguita building"],
     "university avenue": ["gazebo", "apolinario mabini shrine", "souvenir shop"],
     "tahanan ng alumni": ["swimming pool", "college of human kinetics building"],
-    "main building": ["west wing", "south wing", "east wing"],
     "charlie del rosario": ["charlie del rosario hall"],
     "printing press": ["printing press building"],
     "chapel": ["interfaith chapel"],
