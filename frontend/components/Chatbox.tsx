@@ -12,7 +12,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import Message from "./Message"; // Import the Message component
+import Message from "./Message"; 
 
 interface MessageType {
   type: string;
