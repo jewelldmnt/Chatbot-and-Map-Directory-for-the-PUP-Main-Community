@@ -40,24 +40,28 @@ const Message: React.FC<MessageProps> = ({ type, text, time }) => {
      * Renders the message text with hyperlinks styled in blue and underlined.
      *
      * @param {string} message - The message text to render.
-     * @returns {JSX.Element[]} An array of JSX elements representing the message text.
+     * @returns {JSX.Element} JSX element representing the message text.
      */
-    return message.split(" ").map((word, index) => (
-      <React.Fragment key={index}>
-        {isLink(word) ? (
-          <a
-            href={word}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "underline", color: "blue" }}
-          >
-            {word}{" "}
-          </a>
-        ) : (
-          `${word} `
-        )}
-      </React.Fragment>
-    ));
+    return (
+      <div style={{ maxWidth: "100%", wordBreak: "break-all" }}>
+        {message.split(" ").map((word, index, array) => (
+          <React.Fragment key={index}>
+            {isLink(word) ? (
+              <a
+                href={word}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "underline", color: "blue" }}
+              >
+                {word.length > 30 ? `${word.slice(0, 30)}...` : word}{" "}
+              </a>
+            ) : (
+              `${word} `
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    );
   };
 
   return (
