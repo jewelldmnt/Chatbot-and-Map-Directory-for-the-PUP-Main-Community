@@ -1,12 +1,3 @@
-/*
-  Message.tsx - React component for displaying chat messages.
-
-  This component renders a chat message, including the message text, sender type (user or bot),
-  and the timestamp of the message.
-
-  Last edited: Feb 15, 2024
-*/
-
 import React from "react";
 
 interface MessageProps {
@@ -16,12 +7,30 @@ interface MessageProps {
 }
 
 const Message: React.FC<MessageProps> = ({ type, text, time }) => {
-  /**
-   * Message - React functional component for displaying chat messages.
-   *
-   * @param {MessageProps} param0 - The properties of the message.
-   * @returns {JSX.Element} The JSX representation of the Message component.
-   */
+  const isLink = (str: string) => {
+    const regex = /(https?:\/\/[^\s]+)/g;
+    return regex.test(str);
+  };
+
+  const renderTextWithLinks = (message: string) => {
+    return message.split(" ").map((word, index) => (
+      <React.Fragment key={index}>
+        {isLink(word) ? (
+          <a
+            href={word}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "underline", color: "blue" }}
+          >
+            {word}{" "}
+          </a>
+        ) : (
+          `${word} `
+        )}
+      </React.Fragment>
+    ));
+  };
+
   return (
     <div
       className={`flex mb-4 ${
@@ -42,8 +51,9 @@ const Message: React.FC<MessageProps> = ({ type, text, time }) => {
         className={`${
           type === "user" ? "msg_container_send" : "msg_container"
         }`}
+        style={type === "bot" ? { maxWidth: "75%" } : {}}
       >
-        {text}
+        {renderTextWithLinks(text)}
         <span className={type === "user" ? "msg_time_send" : "msg_time"}>
           {time}
         </span>

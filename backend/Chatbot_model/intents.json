@@ -32,7 +32,9 @@
     {
       "tag": "personality",
       "patterns": ["What are you"],
-      "responses": ["I'm P-Bot, your virtual assistant designed specifically to help you navigate through some aspects of the Polytechnic University of the Philippines (PUP) experience! While I strive to provide information, answer questions, and assist you with various PUP-related topics, please note that I may not have answers to every query. However, I'm here to do my best to help you with the information I have available. Whether you need directions, program details, or just want to chat, feel free to ask away!"]
+      "responses": [
+        "I'm P-Bot, your virtual assistant designed specifically to help you navigate through some aspects of the Polytechnic University of the Philippines (PUP) experience! While I strive to provide information, answer questions, and assist you with various PUP-related topics, please note that I may not have answers to every query. However, I'm here to do my best to help you with the information I have available. Whether you need directions, program details, or just want to chat, feel free to ask away!"
+      ]
     },
     {
       "tag": "greetings",
@@ -86,9 +88,7 @@
         "Provide a list of grade equivalents",
         "Can you list the grade equivalences?"
       ],
-      "responses": [
-        ""
-      ]
+      "responses": [""]
     },
 
     {
@@ -106,6 +106,12 @@
     {
       "tag": "programs",
       "patterns": [
+        "Is there available course for",
+        "Is there available course of",
+        "Is the course available",
+        "Is there available program for",
+        "Is there available program of",
+        "Is the program available",
         "What programs are offered",
         "What courses are available",
         "Tell me about the academic programs at PUP",

@@ -24,7 +24,7 @@ class Response():
         - str: The response indicating the current date.
         """
         day = strftime("%A")
-        date = strftime("%B %d %Y")
+        date = strftime("%B %d, %Y")
         return f"Today is {day}, {date}"
     
     
