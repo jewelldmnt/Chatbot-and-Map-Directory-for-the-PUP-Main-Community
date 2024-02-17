@@ -29,7 +29,7 @@ const Message: React.FC<MessageProps> = ({ type, text, time }) => {
       }`}
     >
       {type === "bot" && (
-        <div className="img_cont_msg">
+        <div className="img_cont_msg aspect-square">
           <img
             src={`/pbot.png`}
             alt="P-Bot"
@@ -50,7 +50,7 @@ const Message: React.FC<MessageProps> = ({ type, text, time }) => {
       </div>
 
       {type === "user" && (
-        <div className="img_cont_msg">
+        <div className="img_cont_msg aspect-square">
           <img
             src={`/isko.png`}
             alt="User"
