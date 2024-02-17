@@ -5,6 +5,11 @@ This file contains a Flask application with two endpoints: /api/chat and /api/ma
 The /api/chat endpoint handles chat messages and responds with a chatbot-generated response.
 The /api/map endpoint handles map requests and returns the corresponding map image filename.
 
+Dependencies:
+- flask
+- flask_cors
+- re
+
 Last edited: Feb 15, 2024
 """
 

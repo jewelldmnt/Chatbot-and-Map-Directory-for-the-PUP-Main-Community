@@ -4,6 +4,9 @@ map_dir.py - Module for mapping locations to image filenames.
 This module provides a dictionary 'map_dict' that maps specific locations to a list of related locations.
 It also contains a function 'find_image_filename' to find the corresponding image filename based on two locations.
 
+Dependencies:
+- os
+
 Last edited: Feb 15, 2024
 """
 

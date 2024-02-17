@@ -4,6 +4,9 @@ Response.py - Module for generating various responses.
 This module defines a class 'Response' that provides methods for generating responses related to date, time,
 grade equivalencies, and dean information for specific colleges.
 
+Dependencies:
+- time
+
 Last edited: Feb 15, 2024
 """
 
