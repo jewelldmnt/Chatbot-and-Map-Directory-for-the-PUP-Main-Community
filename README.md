@@ -21,7 +21,7 @@ Welcome to the PUP Campus Guide Chatbot and Map Directory web application reposi
 
 ### Chatbot Interface
 Interact with the chatbot to get instant information about various campus services, events, and facilities.
-![Chatbot Interface](https://github.com/jewelldmnt/Chatbot-and-Map-Directory-for-the-PUP-Main-Community/assets/99337533/37a5393d-7ae1-4160-afa4-4efa189143f2)
+![Chatbot Interface](https://github.com/jewelldmnt/Chatbot-and-Map-Directory-for-the-PUP-Main-Community/assets/99337533/cd7de0d0-49b2-4550-86fc-810399a10c83)
 
 ### Map Directory
 Explore an interactive map of the PUP Main Campus, helping users locate specific buildings, departments, and other points of interest.
